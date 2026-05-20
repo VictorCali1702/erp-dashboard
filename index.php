@@ -43,92 +43,166 @@
 
         body {
             font-family: Arial;
-            background: #f4f6f9;
-            padding: 40px;
+            background: #f4f7fb;
+            display: flex;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
+        /* SIDEBAR */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #111827;
+            color: white;
+            padding: 30px 20px;
+            position: fixed;
         }
 
-        h1 {
+        .logo {
+            font-size:28px;
+            font-weight: bold;
+            margin-bottom:40px;
+        }
+
+        .menu {
+            list-style:none;
+        }
+
+        .menu li {
+            color: #d1d5db;
+            text-decoration:none;
+            font-size:18px;
+            transition: 0.2s;
+        }
+
+        .menu a:hover{
+            color: white;
+        }
+
+        /* MAIN */
+
+        .main {
+            margin-left:250px;
+            width:100px;
+            padding:30px;
+        }
+
+        /* TOPBAR */
+
+        .topbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 30px;
-            color: #222;
         }
 
-        .card {
-            background: white;
-            padding: 25px;
+        .tobar h1{
+            font-size:34px;
+        }
+
+        .user-box{
+            background:white;
+            padding: 12px 20px;
             border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        h2 {
-            margin-bottom: 20px;
+        /* STATS */
+
+        .stats {
+            display: grid;
+            grid-templates-columns:repeat(3,1fr);
+            gap: 20px;
+            margin-bottom:30px;
         }
 
+        .stat-card h3 {
+            color: gray;
+            margin-bottom:10px;
+        }
+
+        .stat-number{
+            font-size:34px;
+            font-weight:bold;
+        }
+
+        /* CARD */
+
+        .card{
+            background:white;
+            padding: 25px;
+            border-radius:16px;
+            margin-bottom:30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-bottom:20px;
+        }
+
+        /* FORM */
         form {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
 
-        input {
-            padding: 12px;
-            border: 1px sold #ddd;
-            border-radius: 8px;
-            min-width: 200px;
+        input{
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            min-width:200px;
         }
 
         button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            background: black;
+            padding: 14px 22px;
+            border:none;
+            border-radius:10px;
+            background: #111827;
             color: white;
             cursor: pointer;
+            transition: 0.2s;
         }
 
-        button:hover {
+        button:hover{
             opacity: 0.9;
         }
 
+        /* TABLE */
         table {
-            width: 100%;
-            border-collapse: collapse;
+            width:100%;
+            border-collapse:collapse;
         }
 
-        th {
-            background: #f1f1f1;
-            padding: 15px;
-            text-align: left;
+        th{
+            background: #f3f4f6;
+            padding: 18px;
+            text-align:left;
         }
 
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+        td{
+            padding: 18px;
+            border-bottom:1px solid #eee;
         }
 
-        .stats {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
+        .low-stock{
+            color:red;
+            font-weight:bold;
         }
 
-        .stat-box {
-            flex: 1;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        /* MOBILE */
+        @media(max-width:900px){
+            .sidebar{
+                display:none;
+            }
 
-        .stat-number {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 10px;
+            .main{
+                margin-left:0;
+            }
+
+            .stats{
+                grid-template-columns:1fr;
+            }
+            
         }
 
     </style>
