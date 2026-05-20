@@ -202,7 +202,7 @@
             .stats{
                 grid-template-columns:1fr;
             }
-            
+
         }
 
     </style>
@@ -211,34 +211,75 @@
 
 <body>
 
-<div class="container">
-    <h1>ERP Dashboard</h1>
+<div class="sidebar">
+    
+    <div class="logo">
+        ERP PRO
+    </div>
+
+    <ul class="menu">
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+        <li>
+            <a href="#">Produkty</a>
+        </li>
+        <li>
+            <a href="#">Zamówienia</a>
+        </li>
+        <li>
+            <a href="#">Klienci</a>
+        </li>
+        <li>
+            <a href="#">Statystyki</a>
+        </li>
+    </u>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>ERP Dashboard</h1>
+        <div class="user-box">
+            Admin
+        </div>
+    </div>
 
     <div class="stats">
-        <div class="stat-box">
-            <p>Liczba produktów</p>
+        <div class="stat-card">
+            <h3>Produkty</h3>
             <div class="stat-number">
                 <?php echo count($products); ?>
             </div>
-        </div>    
+        </div>
+        <div class="stat-card">
+            <h3>Low Stock</h3>
+            <div class="stat-number">
+                2
+            </div>
+        </div>
+        <div class="stat-card">
+            <h3>Zamówienia</h3>
+            <div class="stat-number">
+                14
+            </div>
+        </div>
     </div>
 
     <div class="card">
         <h2>Dodaj produkt</h2>
 
         <form method="POST">
-
-        <input type="text" name="name" placeholder="Nazwa produktu" required>
-        <input type="number" name="price" placeholder="Cena" required>
-        <input type="number" name="stock" placeholder="Stan magazynowy" required>
-        <button type="submit">Dodaj produkt</button>
-
+            <input type="text" name="name" placeholder="Nazwa Produktu" required>
+            <input type="number" name="price" placeholder="Cena" required>
+            <input type="number" name="stock" placeholder="Stan" required>
+            <button type="submit">Dodaj</button>
         </form>
-    
     </div>
-    
+
     <div class="card">
-        <h2>Lista produktów</h2>
+        <h2>Produkty</h2>
 
         <table>
             <tr>
@@ -249,33 +290,31 @@
             </tr>
 
             <?php foreach($products as $product): ?>
-
                 <tr>
-                    
                     <td>
                         <?php echo $product["id"]; ?>
                     </td>
-
                     <td>
                         <?php echo $product["name"]; ?>
                     </td>
-
                     <td>
                         <?php echo $product["price"]; ?> zł
                     </td>
-
                     <td>
-                        <?php echo $product["stock"]; ?>
+                        <?php
+                        if($product["stock"] < 10){
+                            echo "<span class='low-stock'>".$product["stock"]."</span>";
+                        }else {
+                            echo $product["stock"];
+                        }
+
+                        ?>
                     </td>
-                
                 </tr>
-
             <?php endforeach; ?>
-        
         </table>
-    
     </div>
-
+    
 </body>    
 
 </html>
