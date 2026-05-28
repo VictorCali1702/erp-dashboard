@@ -33,7 +33,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ERP Dashboard</title>
-
+    
     <style>
         * {
             margin: 0;
@@ -314,7 +314,7 @@
             <?php endforeach; ?>
         </table>
     </div>
-    
+
 </body>    
 
 </html>
